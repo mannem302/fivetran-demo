@@ -14,3 +14,8 @@ provider "fivetran" {
 
 variable "api_key" {}
 variable "api_secret" {}
+
+# Create a Fivetran group
+resource "fivetran_group" "my_group" {
+  name = "my_fivetran_group"
+}
