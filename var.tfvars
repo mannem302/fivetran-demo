@@ -1,2 +1,2 @@
-api_key    = ""
+api_ke    = ""
 api_secret = ""
