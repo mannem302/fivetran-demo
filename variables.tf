@@ -1,3 +1,4 @@
+/*
 variable "api_key" {
   description = "Fivetran API key"
   type        = string
@@ -9,3 +10,4 @@ variable "api_secret" {
   type        = string
   sensitive   = true
 }
+*/
