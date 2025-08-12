@@ -1,2 +1,2 @@
 # fivetran-demo
-fivetran 
+fivetran.
