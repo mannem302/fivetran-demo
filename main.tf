@@ -1,6 +1,6 @@
 provider "fivetran" {
-  api_key    = var.api_key
-  api_secret = var.api_secret
+  #api_key    = var.api_key
+  #api_secret = var.api_secret
 }
 
 
