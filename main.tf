@@ -1,10 +1,41 @@
-provider "fivetran" {
-  api_key    = var.api_key
-  api_secret = var.api_secret
+terraform {
+  required_providers {
+    vault = {
+      source  = "hashicorp/vault"
+      version = "~> 3.0"
+    }
+    fivetran = {
+      source  = "fivetran/fivetran"
+      version = "1.0.0"
+    }
+  }
 }
 
+# ---------------------------
+# 1. Configure Vault Provider
+# ---------------------------
+provider "vault" {
+}
 
-# Create a Fivetran group
-resource "fivetran_group" "my_group" {
-  name = "my_fivetran_group"
+# ---------------------------
+# 2. Fetch Fivetran API credentials
+# ---------------------------
+data "vault_kv_secret_v2" "fivetran_creds" {
+  mount = "secret"
+  name  = "nonprod/fivetran/destinations/snowflake/int/general/Cred"
+}
+
+# ---------------------------
+# 3. Configure Fivetran Provider using fetched secrets
+# ---------------------------
+provider "fivetran" {
+  api_key    = data.vault_kv_secret_v2.fivetran_creds.data["api_key"]
+  api_secret = data.vault_kv_secret_v2.fivetran_creds.data["api_secret"]
+}
+
+# ---------------------------
+# 4. Create a Test Group in Fivetran
+# ---------------------------
+resource "fivetran_group" "vault_test_group" {
+  name = "vaultgroup"
 }
