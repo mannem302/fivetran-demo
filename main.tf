@@ -15,6 +15,7 @@ terraform {
 # 1. Configure Vault Provider
 # ---------------------------
 provider "vault" {
+skip_child_token = true
 }
 
 # ---------------------------
