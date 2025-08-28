@@ -15,7 +15,7 @@ terraform {
 # 1. Configure Vault Provider
 # ---------------------------
 provider "vault" {
-address = "https://vault-cluster-public-vault-a8cc621b.a0a1c1b6.z1.hashicorp.cloud:8200"
+#address = "https://vault-cluster-public-vault-a8cc621b.a0a1c1b6.z1.hashicorp.cloud:8200"
 }
 
 # ---------------------------
