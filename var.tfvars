@@ -1,5 +1,5 @@
 fivetran_env_type          = "ppte" 
-fivetran_group_name        = "DAP_PREPROD_SF_1"  #Name of the destination
+fivetran_group_name        = "DAP_PREPROD_SF_1"  
 service_type               = "snowflake"
 connection_type            = "Directly"
 auth_type                  = "KEY_PAIR"
