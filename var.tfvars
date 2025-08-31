@@ -1,4 +1,12 @@
-/*
-api_key    = ""
-api_secret = ""
-*/
+fivetran_env_type          = "ppte" 
+fivetran_group_name        = "DAP_PREPROD_SF_1"  #Name of the destination
+service_type               = "snowflake"
+connection_type            = ""
+auth_type                  = "KEY_PAIR"
+snowflake_user             = ""
+snowflake_role             = ""
+snowflake_database         = ""
+snowflake_host             = ""
+snowflake_port             = 443
+snowflake_region           = "AWS_AP_SOUTHEAST_2"
+snowflake_timezone_offset  = "+12:00"
