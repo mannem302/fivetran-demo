@@ -9,4 +9,4 @@ snowflake_database         = "FIVETRAN_DATABASE"
 snowflake_host             = "YMVBTXC-MC09868.snowflakecomputing.com"
 snowflake_port             = 443
 snowflake_region           = "AWS_AP_SOUTHEAST_2"
-snowflake_timezone_offset  = "+12:00"
+snowflake_timezone_offset  = "+12"
