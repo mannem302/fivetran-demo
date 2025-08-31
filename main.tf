@@ -51,7 +51,7 @@ resource "fivetran_destination" "snowflake_destination" {
   service          = var.service_type
   time_zone_offset = var.snowflake_timezone_offset
   region           = var.snowflake_region 
-  paused           = true
+
   config  {
     connection_type = var.connection_type
     host         = var.snowflake_host
