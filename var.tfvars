@@ -1,12 +1,12 @@
 fivetran_env_type          = "ppte" 
 fivetran_group_name        = "DAP_PREPROD_SF_1"  #Name of the destination
 service_type               = "snowflake"
-connection_type            = ""
+connection_type            = "Directly"
 auth_type                  = "KEY_PAIR"
-snowflake_user             = ""
-snowflake_role             = ""
-snowflake_database         = ""
-snowflake_host             = ""
+snowflake_user             = "fivetran_user"
+snowflake_role             = "FIVETRAN_ROLE"
+snowflake_database         = "FIVETRAN_DATABASE"
+snowflake_host             = "YMVBTXC-MC09868.snowflakecomputing.com"
 snowflake_port             = 443
 snowflake_region           = "AWS_AP_SOUTHEAST_2"
 snowflake_timezone_offset  = "+12:00"
