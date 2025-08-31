@@ -1,7 +1,7 @@
 fivetran_env_type          = "ppte" 
 fivetran_group_name        = "DAP_PREPROD_SF_1"  
 service_type               = "snowflake"
-connection_type            = "Directly"
+connection_type            = "Direct"
 auth_type                  = "KEY_PAIR"
 snowflake_user             = "fivetran_user"
 snowflake_role             = "FIVETRAN_ROLE"
