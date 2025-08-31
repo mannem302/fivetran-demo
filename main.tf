@@ -22,8 +22,8 @@ provider "vault" {
 # 2. Fetch Fivetran API credentials
 # ---------------------------
 data "vault_kv_secret_v2" "fivetran_creds" {
-  mount = "secret"
-  name  = "nonprod/fivetran/destinations/snowflake/int/general/Cred"
+  mount = "secrets"
+  name  = "${var.fivetran_env_type}/fivetran/system_key/cred"
 }
 
 # ---------------------------
@@ -34,9 +34,4 @@ provider "fivetran" {
   api_secret = data.vault_kv_secret_v2.fivetran_creds.data["api_secret"]
 }
 
-# ---------------------------
-# 4. Create a Test Group in Fivetran
-# ---------------------------
-resource "fivetran_group" "vault_test_group" {
-  name = "vaultgroup"
-}
+
