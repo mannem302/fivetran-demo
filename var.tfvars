@@ -1,12 +1,14 @@
-fivetran_env_type          = "ppte" 
-fivetran_group_name        = "DAP_PREPROD_SF_1"  
-service_type               = "snowflake"
-connection_type            = "Directly"
-auth_type                  = "KEY_PAIR"
-snowflake_user             = "fivetran_user"
-snowflake_role             = "FIVETRAN_ROLE"
-snowflake_database         = "FIVETRAN_DATABASE"
-snowflake_host             = "YMVBTXC-MC09868.snowflakecomputing.com"
-snowflake_port             = 443
-snowflake_region           = "AWS_AP_SOUTHEAST_2"
-snowflake_timezone_offset  = "+12"
+fivetran_env_type   = "ppte"
+fivetran_group_name = "DAP_PREPROD_SF_1"
+
+snowflake_config = {
+  user            = "fivetran_user"
+  role            = "FIVETRAN_ROLE"
+  database        = "FIVETRAN_DATABASE"
+  host            = "YMVBTXC-MC09868.snowflakecomputing.com"
+  port            = 443
+  region          = "AWS_AP_SOUTHEAST_2"
+  timezone_offset = "+12"
+  connection_type = "Directly"
+  auth_type       = "KEY_PAIR"
+}
