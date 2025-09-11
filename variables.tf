@@ -20,5 +20,6 @@ variable "snowflake_config" {
     port             = number
     connection_type  = string
     auth_type        = string
+    key_encryption   = bool
   })
 }
