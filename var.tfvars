@@ -11,4 +11,5 @@ snowflake_config = {
   timezone_offset = "+12"
   connection_type = "Directly"
   auth_type       = "KEY_PAIR"
+  key_encryption  = true
 }
