@@ -3,7 +3,7 @@
 # ---------------------------
 data "vault_kv_secret_v2" "snowflake_private_key" {
   mount = "secrets"
-  name  = "${var.fivetran_env_type}/fivetran/destinations/snowflake/dev/general/cred"
+  name  = "${var.fivetran_env_type}/fivetran/destinations/snowflake/${var.snowflake_vault_path}/cred"
 }
 
 # ---------------------------
