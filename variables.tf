@@ -8,6 +8,11 @@ variable "fivetran_group_name" {
   type        = string
 }
 
+variable "snowflake_vault_path" {
+  description = "Name of the Fivetran group"
+  type        = string
+}
+
 variable "snowflake_config" {
   description = "Snowflake destination configuration"
   type = object({
