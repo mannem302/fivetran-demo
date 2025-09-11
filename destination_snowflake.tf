@@ -24,7 +24,7 @@ resource "fivetran_destination" "snowflake_destination" {
     role                     = var.snowflake_config.role
     auth                     = var.snowflake_config.auth_type
     private_key              = data.vault_kv_secret_v2.snowflake_private_key.data["private_key"]
-    is_private_key_encrypted = true
+    is_private_key_encrypted = var.snowflake_config.key_encryption
     passphrase               = data.vault_kv_secret_v2.snowflake_private_key.data["passphrase"]
   }
 }
