@@ -1,5 +1,6 @@
 fivetran_env_type   = "ppte"
 fivetran_group_name = "DAP_PREPROD_SF_1"
+snowflake_vault_path = "dev/general"
 
 snowflake_config = {
   user            = "fivetran_user"
