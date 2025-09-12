@@ -7,7 +7,7 @@ variable "fivetran_group_name" {
   description = "Name of the Fivetran group"
   type        = string
 }
-
+/*
 variable "snowflake_vault_path" {
   description = "Name of the Fivetran group"
   type        = string
@@ -28,3 +28,4 @@ variable "snowflake_config" {
     key_encryption   = bool
   })
 }
+*/
