@@ -33,7 +33,7 @@ resource "fivetran_destination" "snowflake_destination" {
 # Creating connector(salesforce)
 resource "fivetran_connector" "salesforce" {
   group_id = fivetran_group.my_group.id
-  service  = "salesforce"
+  service  = "salesforce_sandbox"
   depends_on = [
           fivetran_destination.snowflake_destination
           ] 
