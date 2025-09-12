@@ -1,3 +1,4 @@
+/*
 # ---------------------------
 # Read Snowflake private key from Vault
 # ---------------------------
@@ -28,3 +29,4 @@ resource "fivetran_destination" "snowflake_destination" {
     passphrase               = data.vault_kv_secret_v2.snowflake_private_key.data["passphrase"]
   }
 }
+*/
