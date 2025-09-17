@@ -36,20 +36,19 @@ provider "fivetran" {
 }
 */
 
-resource "vault_kv_secret_v2" "fivetran_creds" {
-  mount = "secrets"
-  name  = "${var.fivetran_env_type}/fivetran/system_key/cred"
+data "vault_generic_secret" "fivetran_creds" {
+  path = "secrets/data/${var.fivetran_env_type}/fivetran/system_key/cred"
 }
 
 provider "fivetran" {
   api_key = try(
-    vault_kv_secret_v2.fivetran_creds.data["api_key"],
-    jsondecode(vault_kv_secret_v2.fivetran_creds.data_json)["api_key"]
+    data.vault_generic_secret.fivetran_creds.data["api_key"],
+    jsondecode(data.vault_generic_secret.fivetran_creds.data_json)["data"]["api_key"]
   )
 
   api_secret = try(
-    vault_kv_secret_v2.fivetran_creds.data["api_secret"],
-    jsondecode(vault_kv_secret_v2.fivetran_creds.data_json)["api_secret"]
+    data.vault_generic_secret.fivetran_creds.data["api_secret"],
+    jsondecode(data.vault_generic_secret.fivetran_creds.data_json)["data"]["api_secret"]
   )
 }
 
