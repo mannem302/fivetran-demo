@@ -18,6 +18,7 @@ provider "vault" {
   # Auth-related info is passed from Terraform Cloud variables
 }
 
+/*
 # ---------------------------
 # 2. Fetch Fivetran API credentials from Vault
 # ---------------------------
@@ -33,3 +34,22 @@ provider "fivetran" {
   api_key    = data.vault_kv_secret_v2.fivetran_creds.data["api_key"]
   api_secret = data.vault_kv_secret_v2.fivetran_creds.data["api_secret"]
 }
+*/
+
+resource "vault_kv_secret_v2" "fivetran_creds" {
+  mount = "secrets"
+  name  = "${var.fivetran_env_type}/fivetran/system_key/cred"
+}
+
+provider "fivetran" {
+  api_key = try(
+    vault_kv_secret_v2.fivetran_creds.data["api_key"],
+    jsondecode(vault_kv_secret_v2.fivetran_creds.data_json)["api_key"]
+  )
+
+  api_secret = try(
+    vault_kv_secret_v2.fivetran_creds.data["api_secret"],
+    jsondecode(vault_kv_secret_v2.fivetran_creds.data_json)["api_secret"]
+  )
+}
+
