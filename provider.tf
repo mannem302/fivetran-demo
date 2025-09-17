@@ -2,7 +2,7 @@ terraform {
   required_providers {
     vault = {
       source  = "hashicorp/vault"
-      version = "5.2.1"
+      version = "4.8.0"
     }
     fivetran = {
       source  = "fivetran/fivetran"
@@ -18,7 +18,7 @@ provider "vault" {
   # Auth-related info is passed from Terraform Cloud variables
 }
 
-/*
+
 # ---------------------------
 # 2. Fetch Fivetran API credentials from Vault
 # ---------------------------
@@ -34,21 +34,7 @@ provider "fivetran" {
   api_key    = data.vault_kv_secret_v2.fivetran_creds.data["api_key"]
   api_secret = data.vault_kv_secret_v2.fivetran_creds.data["api_secret"]
 }
-*/
 
-data "vault_generic_secret" "fivetran_creds" {
-  path = "secrets/data/${var.fivetran_env_type}/fivetran/system_key/cred"
-}
 
-provider "fivetran" {
-  api_key = try(
-    data.vault_generic_secret.fivetran_creds.data["api_key"],
-    jsondecode(data.vault_generic_secret.fivetran_creds.data_json)["data"]["api_key"]
-  )
 
-  api_secret = try(
-    data.vault_generic_secret.fivetran_creds.data["api_secret"],
-    jsondecode(data.vault_generic_secret.fivetran_creds.data_json)["data"]["api_secret"]
-  )
-}
 
