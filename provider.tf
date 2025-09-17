@@ -2,7 +2,7 @@ terraform {
   required_providers {
     vault = {
       source  = "hashicorp/vault"
-      version = "3.18.0"
+      version = "5.2.1"
     }
     fivetran = {
       source  = "fivetran/fivetran"
